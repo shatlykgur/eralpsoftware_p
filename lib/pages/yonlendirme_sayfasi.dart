@@ -1,5 +1,5 @@
-import 'package:eralpsoftware_p/pages/anasayfa.dart';
-import 'package:eralpsoftware_p/pages/profil.dart';
+import 'package:eralpsoftware_p/pages/ana_sayfasi.dart';
+import 'package:eralpsoftware_p/pages/profil_sayfasi.dart';
 import 'package:flutter/material.dart';
 
 

@@ -28,6 +28,10 @@ class _ProfilState extends State<Profil> {
                 backgroundColor: Colors.orange,
               ),
             ),
+            RaisedButton(
+              child: Text('Konumumu al'),
+              onPressed: () {},
+            ),
           ],
         ),
       ),
