@@ -1,4 +1,5 @@
 
+import 'package:eralpsoftware_p/pages/login_sayfasi.dart';
 import 'package:eralpsoftware_p/pages/yonlendirme_sayfasi.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: YonlendirmeSayfasi(),
+      home: LoginSayfa(),
     );
   }
 }
