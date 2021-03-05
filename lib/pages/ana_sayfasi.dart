@@ -1,4 +1,6 @@
+import 'package:eralpsoftware_p/pages/login_sayfasi.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Anasayfa extends StatefulWidget {
   @override
@@ -7,11 +9,27 @@ class Anasayfa extends StatefulWidget {
 
 class _AnasayfaState extends State<Anasayfa> {
   int _counter = 0;
+  SharedPreferences sharedPreferences;
 
   void _incrementCounter() {
     setState(() {
       _counter++;
     });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    checkLoginStatus();
+  }
+
+  checkLoginStatus() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    if (sharedPreferences.getString("token") == null) {
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (BuildContext context) => LoginSayfa()),
+          (Route<dynamic> route) => false);
+    }
   }
 
   @override
@@ -24,6 +42,21 @@ class _AnasayfaState extends State<Anasayfa> {
           style: TextStyle(
               fontSize: 20.0, fontWeight: FontWeight.bold, color: Colors.black),
         ),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              sharedPreferences.clear();
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => LoginSayfa()),
+                  (Route<dynamic> route) => false);
+            },
+            child: Text(
+              "Çıkış Yap",
+              style: TextStyle(color: Colors.white),
+            ),
+          )
+        ],
       ),
       body: Center(
         child: Column(
